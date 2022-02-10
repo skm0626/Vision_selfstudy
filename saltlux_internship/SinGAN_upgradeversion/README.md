@@ -1,3 +1,8 @@
+실행명령어  
+python3 main.py --root /data/test/sinGAN/SinGAN_upgradeversion/images/iu2.png --evaluation --model-to-load /data/test/sinGAN/SinGAN_upgradeversion/generation/results/2022-01-13_02-07-37/g_multivanilla.pt --amps-to-load /data/test/sinGAN/SinGAN_upgradeversion/generation/results/2022-01-13_02-07-37/amps.pt --num-steps 3000 --batch-size 1  
+python3 main.py --root /data/test/sinGAN/SinGAN_upgradeversion/images/jubin_re.jpg --evaluation --model-to-load /data/test/sinGAN/SinGAN_upgradeversion/generation/results/2022-01-13_23-09-32/g_multivanilla.pt --amps-to-load /data/test/sinGAN/SinGAN_upgradeversion/generation/results/2022-01-13_23-09-32/amps.pt --num-steps 3000 --batch-size 1  
+
+
 # SinGAN
 This is an unofficial implementation of SinGAN from someone who's been sitting right next to SinGAN's creator for almost five years.
 
