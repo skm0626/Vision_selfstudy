@@ -1,3 +1,23 @@
+실행방법 <br>
+inference_videos.py 파일  
+비디오들에 대해 (특정 폴더 안에 있는) 오디오들로 wav2lip.pth(default)를 적용하여 결과를 저장해주는 추론 코드 공유합니다.  
+gpu별로 각기 실행하여도 정상적으로 결과를 반환합니다.  
+※ 오디오 파일은 wav 파일만 가능  
+▶ 추론 결과 저장 경로 : results/오디오음성파일명 앞 4글자(날짜)/오디오파일명_비디오파일명.mp4  
+▶ 코드 실행 명령어 예) CUDA_VISIBLE_DEVICES=0 python inference_videos.py --audio audio_data/0207/ --face video_data/  
+▶ 만약 비디오 폴더에 2개의 샘플 영상, 오디오 폴더에 2개의 오디오 파일이 들어 있다면 총 4개의 영상을 저장  
+
+
+※ wav2lip inference.py 관련 설정 회의 내용입니다.
+python inference.py --face video_data/sample.mp4 --audio audio_data/0207/0207_노원_001.wav
+1. --checkpoint_path 옵선 : default값으로 wav2lip.pth 설정
+2. --face 옵션 : wav2lip폴더/video_data/ 폴더에 샘플 비디오 저장
+3. --output 옵선 : default값으로 wav2lip/results/오디오날짜/음성파일명_비디오파일명.mp4 설정
+4. --audio 옵션 : wav2lip폴더/audio_data/오디오날짜/ 폴더에 오디오 저장
+
++) wav2lip.pth 파일이 너무 커서 현재 깃허브에 업로드하지 못함!!!
+
+
 # **Wav2Lip**: *Accurately Lip-syncing Videos In The Wild*
 
 For commercial requests, please contact us at radrabha.m@research.iiit.ac.in or prajwal.k@research.iiit.ac.in. We have an HD model ready that can be used commercially.
