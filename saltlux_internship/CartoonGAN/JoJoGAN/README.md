@@ -1,3 +1,5 @@
+/models 폴더에 dlibshape_predictor_68_face_landmarks.dat 파일 있는데 용량이 너무 커서 깃허브에 업로드 못함!  
+
 # JoJoGAN: One Shot Face Stylization
 [![arXiv](https://img.shields.io/badge/arXiv-2112.11641-b31b1b.svg)](https://arxiv.org/abs/2112.11641)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mchong6/JoJoGAN/blob/main/stylize.ipynb)
