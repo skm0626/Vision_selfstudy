@@ -10,8 +10,8 @@ import platform
 
 parser = argparse.ArgumentParser(description='Inference code to lip-sync videos in the wild using Wav2Lip models')
 
-parser.add_argument('--checkpoint_path', type=str, default='/data/test/wav2lip/Wav2Lip/checkpoints/wav2lip.pth',
-					help='Name of saved checkpoint to load weights from', required=False)
+parser.add_argument('--checkpoint_path', type=str, default='checkpoints/wav2lip_gan.pth',
+					help='Name of saved checkpoint to load weights from', required=True)
 
 parser.add_argument('--face', type=str, 
 					help='Filepath of video/image that contains faces to use', required=True)
@@ -253,11 +253,9 @@ def main():
 if __name__ == '__main__':
 	model = load_model(args.checkpoint_path)
 	print ("Model loaded")
-	audio_date = args.audio.split('/')[-2]
+	root_dir = args.face
 	audio_name = args.audio.split('/')[-1].split('.')[0]
-	video_name = args.face.split('/')[-1].split('.')[0]
-	print(audio_name)
-	print(video_name)
+	files = os.listdir(root_dir)
 	
 	# audio process 
 	if not args.audio.endswith('.wav'):
@@ -287,13 +285,16 @@ if __name__ == '__main__':
 		i += 1
 	print("Length of mel chunks: {}".format(len(mel_chunks)))
 
-	os.makedirs(f'./results/{audio_date}', exist_ok=True)
+	os.makedirs(f'./results/{audio_name}', exist_ok=True)
 	
-	args.outfile = f'./results/{audio_date}/{audio_name}_{video_name}.mp4'
-	# args.outfile = f('./results/{audio_date}/{audio_name}'+'_{video_name}.mp4')
-	print(args.face)
-	print(args.audio)
-	print(args.outfile)
-	main()
+	for file in files:
+		path = os.path.join(root_dir, file)
+		file_name = file.split('.')[0]
+		args.face = path
+		args.outfile = f'./results/{audio_name}/{file_name}.mp4'
+		print(args.face)
+		print(args.audio)
+		print(args.outfile)
+		main()
 
-	print('############# done')	
+		print('############# done')	
